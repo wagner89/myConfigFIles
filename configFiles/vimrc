@@ -16,6 +16,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'sstallion/vim-wtf'
+Plug 'powerline/powerline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 " VimPLUG plugins end here
@@ -23,7 +27,7 @@ call plug#end()
 
 " Color scheme
 " =========================================================================="
-colorscheme neodark
+colorscheme wtf "neodark
 
 " Directories (make sure no nonsense appears in working dir)
 " ========================================================================="
@@ -50,6 +54,8 @@ set termguicolors
 set smartcase
 set ignorecase
 set clipboard=unnamed
+set encoding=utf-8 
+set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline\ 8
 " Mouse shit
 " =========================================================================="
 set mouse=n
@@ -59,7 +65,10 @@ set ttymouse=xterm2
 " =========================================================================="
 filetype plugin indent on
 syntax enable
-
+let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+AirlineTheme base16_atelierforest
 " This solves background color issues on scroll
 if &term =~ '256color'
  set t_ut=
