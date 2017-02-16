@@ -27,7 +27,7 @@ call plug#end()
 
 " Color scheme
 " =========================================================================="
-colorscheme wtf "neodark
+colorscheme neodark
 
 " Directories (make sure no nonsense appears in working dir)
 " ========================================================================="
@@ -68,7 +68,7 @@ syntax enable
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-AirlineTheme base16_atelierforest
+let g:airline_theme='neodark'
 " This solves background color issues on scroll
 if &term =~ '256color'
  set t_ut=
