@@ -21,6 +21,7 @@ Plug 'powerline/powerline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'moll/vim-bbye'
 
 call plug#end()
 " VimPLUG plugins end here
@@ -42,6 +43,7 @@ nnoremap <silent> <F3> :NERDTreeToggle<CR>
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <F6> :MinimapToggle<CR>
 nnoremap <C-c> "+yy
+cnoreabbrev <expr> q getcmdtype() == ":" && getcmdline() == 'q' ? 'Bdelete' : 'q'
 " Settings, flags, defaults
 " =========================================================================="
 set number
