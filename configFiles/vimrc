@@ -20,6 +20,7 @@ Plug 'sstallion/vim-wtf'
 Plug 'powerline/powerline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'jeetsukumaran/vim-buffergator'
 
 call plug#end()
 " VimPLUG plugins end here
