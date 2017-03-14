@@ -22,6 +22,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'moll/vim-bbye'
+Plug 'chmllr/elrodeo-vim-colorscheme'
+Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
 " VimPLUG plugins end here
@@ -44,6 +46,14 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <F6> :MinimapToggle<CR>
 nnoremap <C-c> "+yy
 cnoreabbrev <expr> q getcmdtype() == ":" && getcmdline() == 'q' ? 'Bdelete' : 'q'
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+nnoremap   <Up>     <NOP>
+nnoremap   <Down>   <NOP>
+nnoremap   <Left>   <NOP>
+nnoremap   <Right>  <NOP>
 " Settings, flags, defaults
 " =========================================================================="
 set number
@@ -70,7 +80,7 @@ filetype plugin indent on
 syntax enable
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0 
 let g:airline_theme='neodark'
 " This solves background color issues on scroll
 if &term =~ '256color'
