@@ -136,7 +136,7 @@ gaps inner 15
 gaps outer 15
 
 exec NetworkManager
-exec feh --bg-scale ~/Pictures/Wallpapers/wp2.jpg
+exec feh --bg-scale ~/Pictures/Wallpapers/wp-current.jpg
 exec compton -b
 exec xautolock -time 6 -locker lock
 exec i3-config-wizard
