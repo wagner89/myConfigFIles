@@ -62,6 +62,7 @@ nnoremap  <Up>     <NOP>
 nnoremap  <Down>   <NOP>
 nnoremap  <Left>   <NOP>
 nnoremap  <Right>  <NOP>
+nnoremap P diw"0P
 
 " Settings, flags, defaults
 " =========================================================================="
@@ -79,6 +80,7 @@ set hlsearch
 set clipboard=unnamed
 set encoding=utf-8 
 set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline\ 8
+set hidden
 
 " Mouse shit
 " =========================================================================="
