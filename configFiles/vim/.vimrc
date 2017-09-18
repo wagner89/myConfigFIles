@@ -14,7 +14,6 @@ call plug#begin()
   Plug 'junegunn/goyo.vim'
   Plug 'severin-lemaignan/vim-minimap'
   Plug 'wesQ3/vim-windowswap'
-  Plug 'scrooloose/syntastic'
   Plug 'tpope/vim-fugitive'
   Plug 'rking/ag.vim'
   Plug 'KeitaNakamura/neodark.vim'
@@ -28,6 +27,8 @@ call plug#begin()
   Plug 'chmllr/elrodeo-vim-colorscheme'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'tyrannicaltoucan/vim-deep-space'
+  Plug 'w0rp/ale'
+  Plug 'prettier/vim-prettier'
 
 call plug#end()
 " VimPLUG plugins end here
@@ -94,6 +95,8 @@ syntax enable
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0 
+let g:airline#extensions#ale#error_symbol = ' ⨉ '
+let g:airline#extensions#ale#warning_symbol = ' ⚠ '
 let g:airline_theme='dark'
 
 " This solves background color issues on scroll
@@ -104,38 +107,21 @@ endif
 let g:limelight_priority = -1
 let g:limelight_paragraph_span = 2 
 
-" Syntastic
-"=================================================================================
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set statusline+=%F
+" ALE
+let g:elm_setup_keybindings = 0
+let g:ale_javascript_eslint_executable = 'node_modules/eslint/bin/eslint.js'
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_options = '--print-width 160 --single-quote --trailing-comma all --bracket-spacing --jsx-bracket-same-line'
 
-"Syntastic local linter support
-let g:syntastic_javascript_checkers = []
-function CheckJavaScriptLinter(filepath, linter)
-  if exists('b:syntastic_checkers')
-      return
-  endif
-  if filereadable(a:filepath)
-      let b:syntastic_checkers = [a:linter]
-      let {'b:syntastic_' . a:linter . '_exec'} = a:filepath
-  endif
-endfunction
-function SetupJavaScriptLinter()
-    let l:current_folder = expand('%:p:h')
-    let l:bin_folder = fnamemodify(syntastic#util#findFileInParent('package.json', l:current_folder), ':h')
-    let l:bin_folder = l:bin_folder . '/node_modules/.bin/'
-    call CheckJavaScriptLinter(l:bin_folder . 'standard', 'standard')
-    call CheckJavaScriptLinter(l:bin_folder . 'eslint', 'eslint')
-endfunction
-autocmd FileType javascript call SetupJavaScriptLinter()
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'elm': ['make'],
+\   'elixir': ['credo'],
+\}
+
 
 " EOF
 " =========================================================================="
